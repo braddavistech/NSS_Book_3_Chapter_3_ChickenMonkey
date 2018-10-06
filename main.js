@@ -1,16 +1,25 @@
 const numberArray = [];
+var newPlacement = document.getElementById("outputPlace");
+
+let numberBlock = document.createElement("p");
+
 for (let currentNumber = 1; currentNumber <= 100; currentNumber++) {
-  // Divide the current number by 2, and check if the remainder is 0
-  if (currentNumber % 5 === 0) {
-      console.log(currentNumber); 
+  numberArray[currentNumber] = currentNumber;
+  if (currentNumber % 5 === 0 && currentNumber % 7 != 0) {
       numberArray[currentNumber]="Chicken";
+ 
   };
-  if (currentNumber % 7 === 0) {
-    console.log(currentNumber); 
+  if (currentNumber % 7 === 0 && currentNumber % 5 != 0) {
     numberArray[currentNumber]="Monkey";
   }; 
-  if (currentNumber % 5 === 0 || currentNumber % 7 === 0){
-    console.log(currentNumber);
+  if (currentNumber % 5 === 0 && currentNumber % 7 === 0){
     numberArray[currentNumber]="ChickenMonkey";
   }; 
+  let numberElement = document.createElement("p");
+  let numberNode = document.createTextNode(numberArray[currentNumber]);
+  numberElement.appendChild(numberNode);
+  numberBlock.appendChild(numberElement);
+  
+
 };
+document.getElementById("outputPlace").appendChild(numberBlock);
